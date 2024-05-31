@@ -8,9 +8,8 @@
 //   let pokemon = data[i];
 // }
 
-for (let i = 0; i < data.length; i++) {
-  const pokemonData = data[i];
-
+function cardCrafter(pokemonData) {
+  //function to turn pokemon data into card and write to page
   let newCard = document.createElement("li"); //makes a card
   newCard.classList.add("card");
 
@@ -41,4 +40,9 @@ for (let i = 0; i < data.length; i++) {
   newCard.appendChild(pokeStats); //appends filled list to card
 
   document.querySelector(".cards").appendChild(newCard); //appends finished card to page
+}
+
+for (let i = 0; i < data.length; i++) {
+  const pokemonData = data[i];
+  cardCrafter(pokemonData);
 }
