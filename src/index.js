@@ -37,7 +37,23 @@ function cardCrafter(pokemonData) {
     statElement.textContent = `${statName}: ${statValue}`.toUpperCase(); //populates stat info
     pokeStats.appendChild(statElement);
   }
+
   newCard.appendChild(pokeStats); //appends filled list to card
+
+  const pokeGames = document.createElement("ul");
+  const gamesTitle = document.createElement("p");
+  gamesTitle.textContent = "Appears in:";
+  pokeGames.appendChild(gamesTitle);
+  for (let i = 0; i < pokemonData.game_indices.length; i++) {
+    let gameElement = document.createElement("li");
+    gameText =
+      pokemonData.game_indices[i].version.name.charAt(0).toUpperCase() +
+      pokemonData.game_indices[i].version.name.slice(1);
+    gameElement.textContent = gameText;
+    pokeGames.appendChild(gameElement);
+  }
+
+  newCard.appendChild(pokeGames);
 
   document.querySelector(".cards").appendChild(newCard); //appends finished card to page
 }
